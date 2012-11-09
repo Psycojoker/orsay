@@ -97,6 +97,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'south',
     'quai',
+    'coffeescript',
 )
 
 if DEBUG:
@@ -105,6 +106,8 @@ if DEBUG:
         'django_pdb',
         'django_extensions',
     )
+
+COFFEESCRIPT_LOCATION = SUBPROJECT_PATH + '/static/coffeescript/'
 
 DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.version.VersionDebugPanel',

@@ -1,5 +1,6 @@
 -extends "base.haml"
 -load markup
+-load coffeescript
 
 -block content
   #addPersonModal.reveal-modal
@@ -29,3 +30,6 @@
           %span.round.label.secondary not watching
       %p
         =person.notes|markdown:"safe"
+
+-block javascript
+  %script{type: "text/javascript", src: "{{ STATIC_URL }}{% coffeescript 'listing.coffee' %}"}
