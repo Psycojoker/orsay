@@ -1,4 +1,5 @@
 -extends "base.haml"
+-load markup
 
 -block content
   #addPersonModal.reveal-modal
@@ -18,4 +19,4 @@
       %h5
         =person.is_called
       %p
-        =person.notes
+        =person.notes|markdown:"safe"
