@@ -15,3 +15,11 @@ class Meet(models.Model):
     contact = models.ForeignKey(Person)
     description = models.TextField(null=True, blank=True)
     datetime = models.DateTimeField()
+
+
+class Mail(models.Model):
+    email = models.EmailField()
+    person = models.ForeignKey(Person)
+
+    def __unicode__(self):
+        return self.email
