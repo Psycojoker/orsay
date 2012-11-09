@@ -12,7 +12,7 @@ class Person(models.Model):
 
 class Meet(models.Model):
     place = models.CharField(max_length=255)
-    contact = models.ForeignKey(Person)
+    person = models.ForeignKey(Person)
     description = models.TextField(null=True, blank=True)
     datetime = models.DateTimeField()
 
