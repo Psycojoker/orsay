@@ -95,6 +95,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
+    'quai',
 )
 
 if DEBUG:
