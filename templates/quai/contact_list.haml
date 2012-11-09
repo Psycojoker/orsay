@@ -2,4 +2,8 @@
 
 -block content
   -for contact in object_list
-    =contact
+    .panel
+      %h5
+        =contact.is_called
+      %p
+        =contact.notes
