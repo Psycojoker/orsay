@@ -1,6 +1,18 @@
 -extends "base.haml"
 
 -block content
+  #addPersonModal.reveal-modal
+    %h2 New person:
+    %p.lead Empty
+    %a.close-reveal-modal &#215;
+
+  %center
+    %div{style:"witdh: 500px;"}
+      %a.button{data-reveal-id:"addPersonModal"}
+        Add another person
+
+  %hr
+
   -for contact in object_list
     .panel
       %h5
