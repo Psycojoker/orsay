@@ -13,9 +13,9 @@
 
   %hr
 
-  -for contact in object_list
+  -for person in object_list
     .panel
       %h5
-        =contact.is_called
+        =person.is_called
       %p
-        =contact.notes
+        =person.notes
