@@ -1,3 +1,8 @@
+if !nunjucks.env
+    nunjucks.env = new nunjucks.Environment(new nunjucks.HttpLoader('/static/nunjucks'))
+
+render_template = nunjucks.env.render
+
 PersonCollection = Backbone.Collection.extend
     url: "/person/"
 
@@ -14,7 +19,7 @@ ListingView = Backbone.View.extend
     el: $("#persons")
 
     render: ->
-        @$el.html("dummy")
+        @$el.html(nunjucks.env.render('listing.html', {"persons": @persons.toJSON()}))
 
     initialize: ->
         console.log "init listing view"

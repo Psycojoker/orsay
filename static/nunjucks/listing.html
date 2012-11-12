@@ -1,0 +1,11 @@
+{% for person in persons %}
+    <div class="panel" id="{{ person.id }}">
+        <h5>{{ person.is_called }}
+        {% if person.in_recontacting_loop %}
+        <span class="round label">watching</span>
+        {% else %}
+        <span class="round label secondary">not watching</span>
+        {% endif %}</h5>
+        <p>{{ person.notes }}</p>
+    </div>
+{% endfor %}
