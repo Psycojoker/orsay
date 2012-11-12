@@ -6,6 +6,6 @@
         {% else %}
         <span class="round label secondary">not watching</span>
         {% endif %}</h5>
-        <p>{{ person.notes }}</p>
+        <p>{{ person.notes|markdown }}</p>
     </div>
 {% endfor %}

@@ -1,5 +1,6 @@
 if !nunjucks.env
     nunjucks.env = new nunjucks.Environment(new nunjucks.HttpLoader('/static/nunjucks'))
+    nunjucks.env.addFilter('markdown', (str, count) -> markdown.toHTML(str))
 
 render_template = nunjucks.env.render
 
