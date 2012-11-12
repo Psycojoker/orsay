@@ -5,13 +5,15 @@ from djangbone.views import BackboneAPIView
 from models import Person
 
 
-class PersonView(BackboneAPIView):
-    base_queryset = Person.objects.all()
-
-
 class PersonForm(forms.ModelForm):
     class Meta:
         model = Person
+
+
+class PersonView(BackboneAPIView):
+    base_queryset = Person.objects.all()
+    add_form_class = PersonForm
+    edit_form_class = PersonForm
 
 
 def home(request):
