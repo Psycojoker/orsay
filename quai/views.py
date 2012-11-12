@@ -1,7 +1,12 @@
 from django import forms
 from django.shortcuts import render
+from djangbone.views import BackboneAPIView
 
 from models import Person
+
+
+class PersonView(BackboneAPIView):
+    base_queryset = Person.objects.all()
 
 
 class PersonForm(forms.ModelForm):
