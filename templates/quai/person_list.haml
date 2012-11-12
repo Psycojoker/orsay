@@ -20,16 +20,7 @@
 
   %hr
 
-  -for person in persons
-    .panel
-      %h5
-        =person.is_called
-        -if person.in_recontacting_loop
-          %span.round.label watching
-        -else
-          %span.round.label.secondary not watching
-      %p
-        =person.notes|markdown:"safe"
+  #persons
 
 -block javascript
   %script{type: "text/javascript", src: "{{ STATIC_URL }}{% coffeescript 'listing.coffee' %}"}
