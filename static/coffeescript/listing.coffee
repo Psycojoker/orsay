@@ -12,8 +12,7 @@ PersonCollection = Backbone.Collection.extend
 
 
 PersonModel = Backbone.Model.extend
-    initialize: ->
-        console.log "New person"
+    url: -> if @id? then "/person/#{@id}/" else "/person/"
 
 
 ListingView = Backbone.View.extend
