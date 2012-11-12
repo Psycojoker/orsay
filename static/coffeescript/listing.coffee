@@ -15,11 +15,33 @@ PersonModel = Backbone.Model.extend
     url: -> if @id? then "/person/#{@id}/" else "/person/"
 
 
+PersonView = Backbone.View.extend
+    tagName: "div"
+    events:
+        "click span": "change_watching"
+
+    change_watching: ->
+        console.log "pouet pouet"
+        @person.attributes.in_recontacting_loop = not @person.attributes.in_recontacting_loop
+        @person.save()
+        @render()
+
+    render: ->
+        @$el.html(nunjucks.env.render('person.html', {"person": @person.toJSON()}))
+
+    initialize: (args) ->
+        @person = args.person
+        @$el = $("#person_#{args.person.attributes.id}")
+
+
 ListingView = Backbone.View.extend
     el: $("#persons")
 
     render: ->
         @$el.html(nunjucks.env.render('listing.html', {"persons": @persons.toJSON()}))
+        @persons.each (person) ->
+            new PersonView
+                person: person
 
     initialize: ->
         console.log "init listing view"
