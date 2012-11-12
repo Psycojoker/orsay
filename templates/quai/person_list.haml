@@ -7,7 +7,13 @@
     %h2 New person:
     %form{action:".", method:"post"}
       -csrf_token
-      %input{id:"id_is_called", type:"text", maxlength:"255", name:"is_called", placeholder:"Is called"}
+      .row
+        .nine.columns
+          %input{id:"id_is_called", type:"text", maxlength:"255", name:"is_called", placeholder:"Is called"}
+        .three.columns
+          %p
+            Watch? {{ person_form.in_recontacting_loop }}
+
       %textarea{id:"id_notes", name:"notes", cols:"40", rows:"10", placeholder:"Notes"}
       %input.button{type:"submit", value:"Submit"}
     %a.close-reveal-modal &#215;
