@@ -1,0 +1,5 @@
+{% for person in persons %}
+<div class="panel" id="person_{{ person.id }}">
+{% include "person.html" %}
+</div>
+{% endfor %}

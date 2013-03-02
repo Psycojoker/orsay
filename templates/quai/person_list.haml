@@ -1,0 +1,32 @@
+-extends "base.haml"
+-load markup
+-load coffeescript
+
+-block content
+  #addPersonModal.reveal-modal
+    %h2 New person:
+    %form{action:".", method:"post"}
+      -csrf_token
+      .row
+        .nine.columns
+          %input{id:"id_is_called", type:"text", maxlength:"255", name:"is_called", placeholder:"Is called"}
+        .three.columns
+          %p
+            Watch? {{ person_form.in_recontacting_loop }}
+
+      %textarea{id:"id_notes", name:"notes", cols:"40", rows:"10", placeholder:"Notes"}
+      %input.button{type:"submit", value:"Submit"}
+    %a.close-reveal-modal &#215;
+
+
+  %center
+    %div{style:"witdh: 500px;"}
+      %a.button{data-reveal-id:"addPersonModal"}
+        Add another person
+
+  %hr
+
+  #persons
+
+-block javascript
+  %script{type: "text/javascript", src: "{{ STATIC_URL }}{% coffeescript 'listing.coffee' %}"}
